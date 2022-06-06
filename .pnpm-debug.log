@@ -1,0 +1,23 @@
+{
+  "0 debug pnpm:scope": {
+    "selected": 1
+  },
+  "1 info pnpm": {
+    "err": {
+      "name": "Error",
+      "message": "not found: filter",
+      "code": "ENOENT",
+      "stack": "Error: not found: filter\n    at getNotFoundError (C:\\Users\\ariel\\AppData\\Roaming\\npm\\node_modules\\pnpm\\dist\\pnpm.cjs:41702:51)\n    at Function.whichSync [as sync] (C:\\Users\\ariel\\AppData\\Roaming\\npm\\node_modules\\pnpm\\dist\\pnpm.cjs:41779:13)\n    at getCommandAbsolutePathSync (C:\\Users\\ariel\\AppData\\Roaming\\npm\\node_modules\\pnpm\\dist\\pnpm.cjs:43344:44)\n    at default_1 (C:\\Users\\ariel\\AppData\\Roaming\\npm\\node_modules\\pnpm\\dist\\pnpm.cjs:43353:32)\n    at C:\\Users\\ariel\\AppData\\Roaming\\npm\\node_modules\\pnpm\\dist\\pnpm.cjs:178391:39"
+    }
+  },
+  "2 error pnpm": {
+    "code": "ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL",
+    "prefix": "C:\\Users\\ariel\\OneDrive\\Área de Trabalho\\HIRING-CODERS\\GRAPHQL\\client-server-example",
+    "err": {
+      "name": "pnpm",
+      "message": "not found: filter",
+      "code": "ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL",
+      "stack": "Error: not found: filter\n    at getNotFoundError (C:\\Users\\ariel\\AppData\\Roaming\\npm\\node_modules\\pnpm\\dist\\pnpm.cjs:41702:51)\n    at Function.whichSync [as sync] (C:\\Users\\ariel\\AppData\\Roaming\\npm\\node_modules\\pnpm\\dist\\pnpm.cjs:41779:13)\n    at getCommandAbsolutePathSync (C:\\Users\\ariel\\AppData\\Roaming\\npm\\node_modules\\pnpm\\dist\\pnpm.cjs:43344:44)\n    at default_1 (C:\\Users\\ariel\\AppData\\Roaming\\npm\\node_modules\\pnpm\\dist\\pnpm.cjs:43353:32)\n    at C:\\Users\\ariel\\AppData\\Roaming\\npm\\node_modules\\pnpm\\dist\\pnpm.cjs:178391:39"
+    }
+  }
+}
