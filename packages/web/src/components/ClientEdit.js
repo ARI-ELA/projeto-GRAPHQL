@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { useQuery, useMutation, gql } from '@apollo/client';
 
-const CLIENT = gql `
+const CLIENT = gql`
 query CLIENT($clientId: ID!){
   client(id: $clientId){
     id
@@ -13,7 +13,7 @@ query CLIENT($clientId: ID!){
 
 const UPDATE_CLIENT = gql`
 mutation UPDATE_CLIENT($id: ID!, $name: String!, $email: String!) {
-  updateClient(input: {id: $id, name: $name, email: $email }) {
+  updatedClient(input: {id: $id, name: $name, email: $email }) {
     id
     name
     email
@@ -22,35 +22,36 @@ mutation UPDATE_CLIENT($id: ID!, $name: String!, $email: String!) {
 `;
 
 export function ClientEdit({ clientId }) {
-const {data} = useQuery(CLIENT, {variables: {clientId,}, skip: !clientId, fetchPolicy: 'cache-first',});
+  const { data } = useQuery(CLIENT, { variables: { clientId, }, skip: !clientId, fetchPolicy: 'cache-first', });
 
-const [updateClient] = useMutation(UPDATE_CLIENT);
+  const [updatedClient] = useMutation(UPDATE_CLIENT);
 
-const initialVlaues = useMemo(() => ({name: data?.client.name ?? "", email: data?.client.email ?? ""}), [data]);
+  const initialValues = useMemo(() => ({ name: data?.client.name ?? "", email: data?.client.email ?? "", }), [data]);
 
-const [values, setValues] = useState(initialVlaues);
+  const [values, setValues] = useState(initialValues);
 
-useEffect(() => setValues(initialVlaues), [initialVlaues]);
+  useEffect(() => setValues(initialValues), [initialValues]);
 
-const handleNameChange = (event) => {
-  event.persist();
-  setValues((values) => ({...values, name: event.target.value}));
-};
-const handleEmailChange = (event) => {
-  event.persist();
-  setValues((values) => ({...values, email: event.target.value}));
-};
+  const handleNameChange = (event) => {
+    event.persist();
+    setValues((values) => ({ ...values, name: event.target.value }));
+  };
+  const handleEmailChange = (event) => {
+    event.persist();
+    setValues((values) => ({ ...values, email: event.target.value }));
+  };
 
-const handleSubmit = (event) => {
-  event.preventDefault();
-  updateClient({variables: {id: clientId, name: values.name, email: values.email,},
-  }).then(console.log);
-};
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    updatedClient({
+      variables: { id: clientId, name: values.name, email: values.email, },
+    }).then(console.log);
+  };
 
   return (
     <form onSubmit={handleSubmit}>
-      <fieldset><input type="text" value={values.name} onChange={handleNameChange}/></fieldset>
-      <fieldset><input type="text" value={values.email} onChange={handleEmailChange}/></fieldset>
+      <fieldset><input type="text" value={values.name} onChange={handleNameChange} /></fieldset>
+      <fieldset><input type="text" value={values.email} onChange={handleEmailChange} /></fieldset>
       <button type='submit'> Salvar</button>
     </form>
   );
